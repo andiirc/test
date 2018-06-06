@@ -9,7 +9,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import { ServerTable } from 'vue-tables-2';
+import { ServerTable, } from 'vue-tables-2';
 Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
 
 /**
@@ -18,8 +18,11 @@ Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+let products = Vue.component('products', require('./components/Products/Product.vue'));
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        'products': products
+    }
 });

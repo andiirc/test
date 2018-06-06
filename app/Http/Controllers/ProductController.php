@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Classes\EloquentVueTables;
 use App\Http\Resources\Product as ProductResource;
 use App\Entities\Product;
 use Illuminate\Http\Request;
@@ -9,10 +10,12 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
 
-    public function index(){
+    public function index() {
+        $table = new EloquentVueTables;
+        $data = $table->get(new Product, ['id', 'name']);
 
-        return ProductResource::collection(Product::get());
-
+        return response()->json($data);
+        //return ProductResource::collection($data);
     }
 
 
