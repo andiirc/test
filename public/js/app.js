@@ -103576,7 +103576,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -103624,6 +103624,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ListProduct_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__ListProduct_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FormErros_vue__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__FormErros_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__FormErros_vue__);
+//
+//
 //
 //
 //
@@ -104081,23 +104083,25 @@ var render = function() {
                 : _vm._e()
             ],
             1
-          ),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass: "btn btn-primary",
-              attrs: { type: "submit" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.create($event)
-                }
-              }
-            },
-            [_vm._v("Guardar")]
           )
         ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
+              }
+            }
+          },
+          [_vm._v("Guardar")]
+        )
       ])
     ]),
     _vm._v(" "),
@@ -104206,7 +104210,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104259,9 +104263,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
+//import { Select, Option } from 'element-ui'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -104280,24 +104301,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 quantity: '',
                 product_id: ''
             },
+            value: [],
+            options: [],
             errors: []
         };
     },
 
 
     methods: {
+        create: function create() {
+            var _this = this;
 
-        /*create(){
-            this.$http.post( '/api/products', this.product ).then( res => {
-                this.$set(this.$data, 'errors', [])
-                this.clearInputs()
-                this.showNotify()
-                this.$emit('createProduct', true)
-            }).catch(err => {
-                if(err) this.$set(this.$data, 'errors', err.response.data.errors)
-            })
-        },*/
-
+            this.$http.post('/api/stocks', this.product).then(function (res) {
+                _this.$set(_this.$data, 'errors', []);
+                _this.clearInputs();
+                _this.showNotify();
+                _this.$emit('createStock', true);
+            }).catch(function (err) {
+                if (err) _this.$set(_this.$data, 'errors', err.response.data.errors);
+            });
+        },
         clearInputs: function clearInputs() {
             this.stock = {
                 lot: '',
@@ -104312,6 +104335,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 type: 'success',
                 offset: 60
             });
+        },
+        getProducts: function getProducts(item) {
+            var _this2 = this;
+
+            if (item !== '') {
+                this.$http.get("/api/products/" + item).then(function (res) {
+                    _this2.options = _this2.mapProducts(res.data.data);
+                }).catch(function (err) {
+                    console.log(err);
+                });
+            }
+        },
+        mapProducts: function mapProducts(products) {
+            if (products !== null) {
+                return products.map(function (item) {
+                    return { value: item.id, label: item.name };
+                });
+            }
         }
     }
 
@@ -104501,6 +104542,154 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
+    _c("div", { staticClass: "panel panel-default" }, [
+      _c("div", { staticClass: "panel-heading" }, [_vm._v("Crear Inventario")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-body" }, [
+        _c("form", [
+          _c(
+            "div",
+            { staticClass: "form-group col-sm-6" },
+            [
+              _c("label", { attrs: { for: "product" } }, [_vm._v("Producto")]),
+              _vm._v(" "),
+              _c(
+                "el-select",
+                {
+                  staticClass: "col-sm-6",
+                  attrs: {
+                    id: "product",
+                    filterable: "",
+                    remote: "",
+                    "reserve-keyword": "",
+                    placeholder: "Seleccionar producto",
+                    "remote-method": _vm.getProducts
+                  },
+                  model: {
+                    value: _vm.stock.product_id,
+                    callback: function($$v) {
+                      _vm.$set(_vm.stock, "product_id", $$v)
+                    },
+                    expression: "stock.product_id"
+                  }
+                },
+                _vm._l(_vm.options, function(item) {
+                  return _c("el-option", {
+                    key: item.value,
+                    attrs: { label: item.label, value: item.value }
+                  })
+                })
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group col-sm-6" },
+            [
+              _c("label", { attrs: { for: "lot" } }, [_vm._v("Lote")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.stock.lot,
+                    expression: "stock.lot"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text", id: "lot", placeholder: "Lote" },
+                domProps: { value: _vm.stock.lot },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.stock, "lot", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.errors.lot
+                ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.lot) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e()
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "form-group col-sm-6" },
+            [
+              _c("label", { attrs: { for: "quantity" } }, [_vm._v("Cantidad")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.stock.quantity,
+                    expression: "stock.quantity"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "number",
+                  id: "quantity",
+                  placeholder: "Cantidad"
+                },
+                domProps: { value: _vm.stock.quantity },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.stock, "quantity", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.errors.quantity
+                ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.quantity) +
+                        "\n                    "
+                    )
+                  ])
+                : _vm._e()
+            ],
+            1
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "panel-footer" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            attrs: { type: "submit" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.create($event)
+              }
+            }
+          },
+          [_vm._v("Guardar")]
+        )
+      ])
+    ]),
+    _vm._v(" "),
     _c("div", { staticClass: "panel panel-default" }, [
       _c("div", { staticClass: "panel-heading" }, [_vm._v("Inventario")]),
       _vm._v(" "),

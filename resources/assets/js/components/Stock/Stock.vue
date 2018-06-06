@@ -1,29 +1,45 @@
 <template>
     <div>
-
-        <!--<div class="panel panel-default">
+        <div class="panel panel-default">
             <div class="panel-heading">Crear Inventario</div>
 
             <div class="panel-body">
                 <form >
                     <div class="form-group col-sm-6">
-                        <label for="name">Nombre del producto</label>
-                        <input type="text" class="form-control" id="name" placeholder="Nombre del producto" v-model="product.name">
-                        <form-error v-if="errors.name" :errors="errors">
-                            {{ errors.name }}
-                        </form-error>
+                        <label for="product">Producto</label>
+                        <el-select id="product" v-model="stock.product_id" filterable remote reserve-keyword placeholder="Seleccionar producto"
+                                   :remote-method="getProducts"  class="col-sm-6">
+                            <el-option  v-for="item in options" :key="item.value"
+                                        :label="item.label" :value="item.value">
+                            </el-option>
+                        </el-select>
+                        <!--<form-error v-if="errors.product_id" :errors="errors">
+                            {{ errors.product_id }}
+                        </form-error>-->
                     </div>
+
                     <div class="form-group col-sm-6">
-                        <label for="unit_value">Precio Unitario</label>
-                        <input type="text" class="form-control" id="unit_value" placeholder="Precio Unitario" v-model="product.unit_value">
-                        <form-error v-if="errors.unit_value" :errors="errors">
-                            {{ errors.unit_value }}
+                        <label for="lot">Lote</label>
+                        <input type="text" class="form-control" id="lot" placeholder="Lote" v-model="stock.lot">
+                        <form-error v-if="errors.lot" :errors="errors">
+                            {{ errors.lot }}
                         </form-error>
                     </div>
-                    <button type="submit" class="btn btn-primary" @click.prevent="create">Guardar</button>
+
+                    <div class="form-group col-sm-6">
+                        <label for="quantity">Cantidad</label>
+                        <input type="number" class="form-control" id="quantity" placeholder="Cantidad" v-model="stock.quantity">
+                        <form-error v-if="errors.quantity" :errors="errors">
+                            {{ errors.quantity }}
+                        </form-error>
+                    </div>
+
                 </form>
             </div>
-        </div>-->
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary" @click.prevent="create">Guardar</button>
+            </div>
+        </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">Inventario</div>
@@ -39,6 +55,7 @@
 <script>
     import ListStock from "./ListStock.vue";
     import FormError from '../FormErros.vue'
+    //import { Select, Option } from 'element-ui'
 
     export default {
 
@@ -57,22 +74,24 @@
                     quantity: '',
                     product_id: ''
                 },
+                value: [],
+                options: [],
                 errors: []
             }
         },
 
         methods:{
 
-            /*create(){
-                this.$http.post( '/api/products', this.product ).then( res => {
+            create(){
+                this.$http.post( '/api/stocks', this.product ).then( res => {
                     this.$set(this.$data, 'errors', [])
                     this.clearInputs()
                     this.showNotify()
-                    this.$emit('createProduct', true)
+                    this.$emit('createStock', true)
                 }).catch(err => {
                     if(err) this.$set(this.$data, 'errors', err.response.data.errors)
                 })
-            },*/
+            },
 
             clearInputs(){
                 this.stock = {
@@ -89,6 +108,24 @@
                     type: 'success',
                     offset: 60
                 })
+            },
+
+            getProducts(item){
+                if (item !== '') {
+                    this.$http.get(`/api/products/${item}`).then(res => {
+                        this.options = this.mapProducts(res.data.data)
+                    }).catch(err => {
+                        console.log(err)
+                    })
+                }
+            },
+
+            mapProducts(products){
+                if (products !== null) {
+                    return products.map( item => {
+                        return {value: item.id, label: item.name }
+                    })
+                }
             }
 
         }

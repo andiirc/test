@@ -20,8 +20,10 @@
                             {{ errors.unit_value }}
                         </form-error>
                     </div>
-                    <button type="submit" class="btn btn-primary" @click.prevent="create">Guardar</button>
                 </form>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" class="btn btn-primary" @click.prevent="create">Guardar</button>
             </div>
         </div>
 
