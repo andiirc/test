@@ -22,3 +22,7 @@ Route::get('/products', 'ProductController@index');
 Route::get('/products/{name}', 'ProductController@search');
 
 Route::post('/products','ProductController@store');
+
+Route::get('/stocks', 'StockController@index');
+
+Route::post('/stocks','StockController@store');

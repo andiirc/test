@@ -1,8 +1,8 @@
 <template>
     <div>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">Crear Productos</div>
+        <!--<div class="panel panel-default">
+            <div class="panel-heading">Crear Inventario</div>
 
             <div class="panel-body">
                 <form >
@@ -23,13 +23,13 @@
                     <button type="submit" class="btn btn-primary" @click.prevent="create">Guardar</button>
                 </form>
             </div>
-        </div>
+        </div>-->
 
         <div class="panel panel-default">
-            <div class="panel-heading">Lista de productos</div>
+            <div class="panel-heading">Inventario</div>
 
             <div class="panel-body">
-                <list-product />
+                <list-stock />
             </div>
         </div>
 
@@ -37,28 +37,25 @@
 </template>
 
 <script>
-    import ListProducts from "./ListProduct.vue";
+    import ListStock from "./ListStock.vue";
     import FormError from '../FormErros.vue'
-    /*import 'element-ui/lib/theme-chalk/index.css'
-    import { Notification } from 'element-ui'
-    import lang from 'element-ui/lib/locale/lang/es'
-    import locale from 'element-ui/lib/locale'
-    locale.use(lang)*/
 
     export default {
 
-        name: "products",
+        name: "stocks",
 
         components: {
-            'list-product': ListProducts,
+            'list-stock': ListStock,
             'form-error': FormError,
         },
 
         data(){
             return {
-                product: {
-                    name: '',
-                    unit_value: null,
+                stock: {
+                    lot: '',
+                    due_date: '',
+                    quantity: '',
+                    product_id: ''
                 },
                 errors: []
             }
@@ -66,7 +63,7 @@
 
         methods:{
 
-            create(){
+            /*create(){
                 this.$http.post( '/api/products', this.product ).then( res => {
                     this.$set(this.$data, 'errors', [])
                     this.clearInputs()
@@ -75,15 +72,20 @@
                 }).catch(err => {
                     if(err) this.$set(this.$data, 'errors', err.response.data.errors)
                 })
-            },
+            },*/
 
             clearInputs(){
-               this.product = { name: '', unit_value: null }
+                this.stock = {
+                    lot: '',
+                    due_date: '',
+                    quantity: '',
+                    product_id: ''
+                }
             },
 
             showNotify(){
                 this.$notify({
-                    message: 'Producto creado exitosamente',
+                    message: 'Producto agregado al inventario exitosamente',
                     type: 'success',
                     offset: 60
                 })

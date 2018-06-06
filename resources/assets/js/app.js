@@ -30,10 +30,12 @@ locale.use(lang)
  */
 
 let products = Vue.component('products', require('./components/Products/Product.vue'));
+let stocks = Vue.component('stocks', require('./components/Stock/Stock.vue'))
 
 const app = new Vue({
     el: '#app',
     components: {
-        'products': products
+        'products': products,
+        'stocks': stocks
     }
 });
