@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Classes\EloquentVueTables;
+use App\Http\Requests\ProductRequest;
 use App\Http\Resources\Product as ProductResource;
 use App\Entities\Product;
 use Illuminate\Http\Request;
@@ -12,12 +13,11 @@ class ProductController extends Controller
 
     public function index() {
         $table = new EloquentVueTables;
-        $data = $table->get(new Product, ['id', 'name']);
+        $data = $table->get( new Product, ['id', 'name', 'unit_value'] );
 
         return response()->json($data);
         //return ProductResource::collection($data);
     }
-
 
     public function search($name){
 
@@ -26,7 +26,7 @@ class ProductController extends Controller
 
     }
 
-    public function store(Request $request){
+    public function store(ProductRequest $request){
 
         $product = Product::create([
             'name' => $request->input('name'),

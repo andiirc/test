@@ -9,8 +9,19 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.prototype.$http = window.axios
+
 import { ServerTable, } from 'vue-tables-2';
 Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
+
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
+import lang from 'element-ui/lib/locale/lang/es'
+import locale from 'element-ui/lib/locale'
+locale.use(lang)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
