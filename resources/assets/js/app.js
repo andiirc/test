@@ -9,6 +9,9 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import { ServerTable } from 'vue-tables-2';
+Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
