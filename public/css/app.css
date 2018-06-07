@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);@charset "UTF-8";
 
 .card-product {
+  background-color: #fff;
   border: 1px solid #eee;
   margin: 10px;
 }
