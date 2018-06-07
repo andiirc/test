@@ -14,7 +14,7 @@
 
         data () {
             return {
-                columns: ['id', 'name', 'unit_value', 'lot', 'quantity', 'value_item' ],
+                columns: ['id', 'name', 'unit_value', 'lot', 'quantity', 'value_item', 'due_date' ],
                 options: {
                     perPage: 5,
                     perPageValues: [ 5, 10, 15, 20 ],
@@ -24,10 +24,11 @@
                         unit_value: 'Valor Unitario',
                         lot: 'Lote',
                         quantity: 'Cantidad',
-                        value_item: 'Valor Total'
+                        value_item: 'Valor Total',
+                        due_date: 'Fecha Caducidad'
                     },
-                    sortable: ['id', 'name', 'lot'],
-                    filterable: ['id', 'name', 'lot'],
+                    sortable: ['id', 'name', 'lot' ],
+                    filterable: ['id', 'name', 'lot' ],
                     filterByColumn: true,
                 }
             }
