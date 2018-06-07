@@ -9,8 +9,19 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import { ServerTable } from 'vue-tables-2';
+Vue.prototype.$http = window.axios
+
+import { ServerTable, } from 'vue-tables-2';
 Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
+
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
+import lang from 'element-ui/lib/locale/lang/es'
+import locale from 'element-ui/lib/locale'
+locale.use(lang)
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -18,8 +29,13 @@ Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+let products = Vue.component('products', require('./components/Products/Product.vue'));
+let stocks = Vue.component('stocks', require('./components/Stock/Stock.vue'))
 
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    components: {
+        'products': products,
+        'stocks': stocks
+    }
 });

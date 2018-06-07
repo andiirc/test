@@ -100,8 +100,13 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'name' => [
+            'unique' => 'Este producto ya se encuenta registado',
+            'required' => 'El nombre producto es requerido',
+            'min'=> 'El nombre del producto debe tener minimo tres caracteres'
+        ],
+        'unit_value' => [
+            'required' => 'El valor unitario es requerido',
         ],
     ],
 
