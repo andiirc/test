@@ -6,6 +6,7 @@
 /.idea
 /.vagrant
 /docker
+/docker/nginx/logs
 Homestead.json
 Homestead.yaml
 npm-debug.log
