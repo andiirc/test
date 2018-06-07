@@ -5,10 +5,16 @@
 /vendor
 /.idea
 /.vagrant
-/docker
 /docker/nginx/logs
+/docker/.DS_Store
+docker/nginx/.DS_Store
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
 .env
+.DS_Store
+
+
+
+

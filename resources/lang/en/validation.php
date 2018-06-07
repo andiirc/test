@@ -108,6 +108,18 @@ return [
         'unit_value' => [
             'required' => 'El valor unitario es requerido',
         ],
+        'lot' => [
+            'required' => 'El lote es requerido',
+        ],
+        'due_date' => [
+            'required' => 'La fecha de caducidad es requerida',
+        ],
+        'quantity' => [
+            'required' => 'La cantidad es requerida',
+        ],
+        'product_id' => [
+            'required' => 'El producto es requerido',
+        ],
     ],
 
     /*

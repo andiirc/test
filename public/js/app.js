@@ -104210,7 +104210,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104279,10 +104279,37 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
-//import { Select, Option } from 'element-ui'
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
@@ -104312,7 +104339,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         create: function create() {
             var _this = this;
 
-            this.$http.post('/api/stocks', this.product).then(function (res) {
+            this.$http.post('/api/stocks', this.stock).then(function (res) {
                 _this.$set(_this.$data, 'errors', []);
                 _this.clearInputs();
                 _this.showNotify();
@@ -104444,7 +104471,7 @@ exports = module.exports = __webpack_require__(16)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -104474,7 +104501,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     data: function data() {
         return {
-            columns: ['id', 'name', 'unit_value', 'lot', 'quantity', 'value_item'],
+            columns: ['id', 'name', 'unit_value', 'lot', 'quantity', 'value_item', 'due_date'],
             options: {
                 perPage: 5,
                 perPageValues: [5, 10, 15, 20],
@@ -104484,7 +104511,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     unit_value: 'Valor Unitario',
                     lot: 'Lote',
                     quantity: 'Cantidad',
-                    value_item: 'Valor Total'
+                    value_item: 'Valor Total',
+                    due_date: 'Fecha Caducidad'
                 },
                 sortable: ['id', 'name', 'lot'],
                 filterable: ['id', 'name', 'lot'],
@@ -104547,128 +104575,201 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "panel-body" }, [
         _c("form", [
-          _c(
-            "div",
-            { staticClass: "form-group col-sm-6" },
-            [
-              _c("label", { attrs: { for: "product" } }, [_vm._v("Producto")]),
-              _vm._v(" "),
+          _c("div", { staticClass: "row col-sm-12" }, [
+            _c("div", { staticClass: "form-group col-sm-6" }, [
               _c(
-                "el-select",
-                {
-                  staticClass: "col-sm-6",
-                  attrs: {
-                    id: "product",
-                    filterable: "",
-                    remote: "",
-                    "reserve-keyword": "",
-                    placeholder: "Seleccionar producto",
-                    "remote-method": _vm.getProducts
-                  },
-                  model: {
-                    value: _vm.stock.product_id,
-                    callback: function($$v) {
-                      _vm.$set(_vm.stock, "product_id", $$v)
+                "div",
+                { staticClass: "col-sm-12" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "col-sm-12", attrs: { name: "product" } },
+                    [_vm._v("Producto")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-select",
+                    {
+                      staticClass: "col-sm-12",
+                      attrs: {
+                        id: "product",
+                        filterable: "",
+                        remote: "",
+                        "reserve-keyword": "",
+                        clearable: "",
+                        placeholder: "Seleccionar producto",
+                        "remote-method": _vm.getProducts
+                      },
+                      model: {
+                        value: _vm.stock.product_id,
+                        callback: function($$v) {
+                          _vm.$set(_vm.stock, "product_id", $$v)
+                        },
+                        expression: "stock.product_id"
+                      }
                     },
-                    expression: "stock.product_id"
-                  }
-                },
-                _vm._l(_vm.options, function(item) {
-                  return _c("el-option", {
-                    key: item.value,
-                    attrs: { label: item.label, value: item.value }
-                  })
-                })
+                    _vm._l(_vm.options, function(item) {
+                      return _c("el-option", {
+                        key: item.value,
+                        attrs: { label: item.label, value: item.value }
+                      })
+                    })
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.product_id
+                    ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                        _vm._v(
+                          "\n                             " +
+                            _vm._s(_vm.errors.product_id) +
+                            "\n                            "
+                        )
+                      ])
+                    : _vm._e()
+                ],
+                1
               )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group col-sm-6" },
-            [
-              _c("label", { attrs: { for: "lot" } }, [_vm._v("Lote")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.stock.lot,
-                    expression: "stock.lot"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: { type: "text", id: "lot", placeholder: "Lote" },
-                domProps: { value: _vm.stock.lot },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group col-sm-6" },
+              [
+                _c("label", { attrs: { for: "lot" } }, [_vm._v("Lote")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stock.lot,
+                      expression: "stock.lot"
                     }
-                    _vm.$set(_vm.stock, "lot", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.lot
-                ? _c("form-error", { attrs: { errors: _vm.errors } }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errors.lot) +
-                        "\n                    "
-                    )
-                  ])
-                : _vm._e()
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "form-group col-sm-6" },
-            [
-              _c("label", { attrs: { for: "quantity" } }, [_vm._v("Cantidad")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.stock.quantity,
-                    expression: "stock.quantity"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "number",
-                  id: "quantity",
-                  placeholder: "Cantidad"
-                },
-                domProps: { value: _vm.stock.quantity },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                  ],
+                  staticClass: "form-control",
+                  attrs: { type: "text", id: "lot", placeholder: "Lote" },
+                  domProps: { value: _vm.stock.lot },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.stock, "lot", $event.target.value)
                     }
-                    _vm.$set(_vm.stock, "quantity", $event.target.value)
                   }
-                }
-              }),
-              _vm._v(" "),
-              _vm.errors.quantity
-                ? _c("form-error", { attrs: { errors: _vm.errors } }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errors.quantity) +
-                        "\n                    "
-                    )
-                  ])
-                : _vm._e()
-            ],
-            1
-          )
+                }),
+                _vm._v(" "),
+                _vm.errors.lot
+                  ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.errors.lot) +
+                          "\n                        "
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "row col-sm-12" }, [
+            _c("div", { staticClass: "form-group col-sm-6" }, [
+              _c(
+                "div",
+                { staticClass: "col-sm-12" },
+                [
+                  _c(
+                    "label",
+                    { staticClass: "col-sm-12", attrs: { for: "due_date" } },
+                    [_vm._v("Fecha Caducidad")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "col-sm-12" },
+                    [
+                      _c("el-date-picker", {
+                        staticStyle: { width: "100%" },
+                        attrs: {
+                          type: "date",
+                          placeholder: "Fecha",
+                          id: "due_date",
+                          format: "yyyy-MM-dd",
+                          "value-format": "yyyy-MM-dd"
+                        },
+                        model: {
+                          value: _vm.stock.due_date,
+                          callback: function($$v) {
+                            _vm.$set(_vm.stock, "due_date", $$v)
+                          },
+                          expression: "stock.due_date"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.errors.due_date
+                    ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                        _vm._v(
+                          "\n                                " +
+                            _vm._s(_vm.errors.due_date) +
+                            "\n                            "
+                        )
+                      ])
+                    : _vm._e()
+                ],
+                1
+              )
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "form-group col-sm-6" },
+              [
+                _c("label", { attrs: { for: "quantity" } }, [
+                  _vm._v("Cantidad")
+                ]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.stock.quantity,
+                      expression: "stock.quantity"
+                    }
+                  ],
+                  staticClass: "form-control",
+                  attrs: {
+                    type: "number",
+                    id: "quantity",
+                    placeholder: "Cantidad"
+                  },
+                  domProps: { value: _vm.stock.quantity },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.stock, "quantity", $event.target.value)
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _vm.errors.quantity
+                  ? _c("form-error", { attrs: { errors: _vm.errors } }, [
+                      _vm._v(
+                        "\n                            " +
+                          _vm._s(_vm.errors.quantity) +
+                          "\n                        "
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          ])
         ])
       ]),
       _vm._v(" "),
