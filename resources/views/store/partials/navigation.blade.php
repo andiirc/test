@@ -28,7 +28,15 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <!--<li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>-->
+                        @if (Session()->has('purchase'))
+                           <li>
+                               <a href="{{ route('purchase') }}">
+                                 <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                   <span class="badge">{{ Count(Session()->get('purchase')) }}</span>
+                               </a>
+                           </li>
+                        @endif
+
                         <li><a href="{{ route('login') }}">Login</a></li>
                     @endauth
                 @endif
