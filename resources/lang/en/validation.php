@@ -119,6 +119,7 @@ return [
         ],
         'product_id' => [
             'required' => 'El producto es requerido',
+            'unique' => 'El producto ya esta en stock'
         ],
     ],
 

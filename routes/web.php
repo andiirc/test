@@ -25,3 +25,4 @@ Route::get('/purchase/attach/{product}', 'PurchaseController@attach')->name('pur
 Route::get('/purchase/delete/{product}', 'PurchaseController@delete')->name('purchase-delete-item');
 Route::get('/purchase/trash', 'PurchaseController@trash')->name('purchase-trash');
 Route::get('/purchase/detail', 'PurchaseController@detail')->name('purchase-detail');
+Route::get('/purchase/finalized', 'PurchaseController@finalized')->name('purchase-finalized');
