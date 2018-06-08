@@ -27,7 +27,7 @@ class StockRequest extends FormRequest
             'lot' => 'required',
             'due_date' => 'required',
             'quantity' => 'required',
-            'product_id' => 'required'
+            'product_id' => 'required|unique:stock,product_id'
         ];
     }
 }
