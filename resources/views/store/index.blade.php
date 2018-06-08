@@ -17,18 +17,29 @@
                                 @else
                                     <span class="label label-danger">Agotado</span>
                                 @endif
+
                             </div>
+
                         </div>
                     </figcaption>
                     <div class="bottom-wrap">
-                        @if($stock->quantity > 0)
-                            <a href="{{ route('purchase-attach', $stock->name ) }}" class="btn btn-sm btn-primary pull-right">
-                                <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar
-                            </a>
-                        @endif
                         <div class="price-wrap h5">
                             <span class="price-new">Precio </span><del class="price-old">${{ $stock->unit_value }}</del>
                         </div>
+                        @if($stock->quantity > 0)
+
+                            <form action="{{ route('purchase-attach') }}" method="POST" enctype="multipart/form-data">
+                                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                                <label for="quantity">Seleccionar Cantidad</label>
+                                <input type="number" name="quantity" min="1" max="{{  $stock->quantity }}" value="{{ $quantity = 1 }}">
+                                <input type="hidden" name="name" value="{{ $stock->name}}" >
+                                <button class="btn btn-sm btn-primary pull-right" type="submit">
+                                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
+                                    Agregar
+                                </button>
+                            </form>
+
+                        @endif
                     </div>
                 </figure>
             </div>
