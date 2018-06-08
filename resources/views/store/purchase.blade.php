@@ -26,9 +26,8 @@
                             <thead>
                                 <tr>
                                     <th class="text-center">Nombre</th>
-                                    <th class="text-center">Precio</th>
                                     <th class="text-center">Cantidad</th>
-                                    <th class="text-center">Subtotal</th>
+                                    <th class="text-center">Precio</th>
                                     <th class="text-center">Eliminar</th>
                                 </tr>
                             </thead>
@@ -36,11 +35,10 @@
                                 @foreach($purchases as $purchase)
                                     <tr>
                                         <td>{{ $purchase->name }}</td>
-                                        <td>{{ $purchase->unit_value }}</td>
                                         <td>
                                             <input type="number" min="1" max="{{  $purchase->quantity }}" value="{{ $purchase->number_items }}" disabled="disabled">
                                         </td>
-                                        <td>{{ $purchase->value_item * $purchase->number_items }}</td>
+                                        <td>{{ $purchase->unit_value }}</td>
                                         <td>
                                             <a href="{{ route('purchase-delete-item', $purchase->name) }}" class="btn btn-danger">
                                                 <span class="glyphicon glyphicon-minus-sign" aria-hidden="true"></span>
