@@ -5,13 +5,9 @@
 /vendor
 /.idea
 /.vagrant
-<<<<<<< HEAD
-docker/nginx/logs
-docker/.DS_Store
+/docker/nginx/logs
+/docker/.DS_Store
 docker/nginx/.DS_Store
-=======
-/docker
->>>>>>> 64112c9b77230fa8cc4e00432a9cddf5ca819832
 Homestead.json
 Homestead.yaml
 npm-debug.log

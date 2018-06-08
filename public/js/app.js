@@ -19687,6 +19687,7 @@ __WEBPACK_IMPORTED_MODULE_4_element_ui_lib_locale___default.a.use(__WEBPACK_IMPO
 
 var products = Vue.component('products', __webpack_require__(387));
 var stocks = Vue.component('stocks', __webpack_require__(402));
+//Vue.component('counter', require('./components/Counter.vue'))
 
 var app = new Vue({
   el: '#app',
