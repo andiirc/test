@@ -21,7 +21,7 @@ Route::get('/stock', 'HomeController@stock')->name('stock');
 
 
 Route::get('/purchase', 'PurchaseController@show')->name('purchase');
-Route::get('/purchase/attach/{product}', 'PurchaseController@attach')->name('purchase-attach');
+Route::post('/purchase/attach', 'PurchaseController@attach')->name('purchase-attach'); //{{-- route('purchase-attach', [$stock->name, $quantity]) --}}
 Route::get('/purchase/delete/{product}', 'PurchaseController@delete')->name('purchase-delete-item');
 Route::get('/purchase/trash', 'PurchaseController@trash')->name('purchase-trash');
 Route::get('/purchase/detail', 'PurchaseController@detail')->name('purchase-detail');

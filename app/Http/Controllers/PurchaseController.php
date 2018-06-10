@@ -22,15 +22,19 @@ class PurchaseController extends Controller
         return view('store.purchase', compact('purchases', 'total'));
     }
 
-    public function attach($name)
+    public function attach(Request $request)
     {
         $purchase = Session::get('purchase');
-        $product = StockView::where("name", $name)->first();
-        $product->number_items = 1;
-        $purchase[$product->name] = $product;
-        Session::put('purchase', $purchase);
-
-        return redirect()->route('purchase');
+        $product = StockView::where("name", $request->input('name'))->first();
+        if($request->input('quantity') > $product->quantity ){
+            $request->session()->flash('errors', 'la cantidad que esta seleccionando del producto');
+            return redirect()->route('products');
+        }else{
+            $product->number_items = $request->input('quantity');
+            $purchase[$product->name] = $product;
+            Session::put('purchase', $purchase);
+            return redirect()->route('purchase');
+        }
     }
 
     public function delete($name)
