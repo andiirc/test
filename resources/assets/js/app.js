@@ -31,11 +31,13 @@ locale.use(lang)
 
 let products = Vue.component('products', require('./components/Products/Product.vue'));
 let stocks = Vue.component('stocks', require('./components/Stock/Stock.vue'))
+let orders =  Vue.component('orders', require('./components/Order/Order.vue'))
 
 const app = new Vue({
     el: '#app',
     components: {
         'products': products,
-        'stocks': stocks
+        'stocks': stocks,
+        'orders': orders
     }
 });

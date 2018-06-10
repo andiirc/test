@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Entities\Order;
+use App\Entities\OrderItem;
 use App\Entities\Stock;
 use App\Entities\StockView;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -63,22 +65,32 @@ class PurchaseController extends Controller
         return $total;
     }
 
-    public function detail()
+    public function finished()
     {
         if(count(Session::get('purchase')) < 1){
             return redirect()->route('products');
         }
         $purchases = Session::get('purchase');
         $total = $this->total();
-        $this->createOrder($total, $purchases);
-        return view('store.detail', compact('purchases', 'total'));
+        $order = $this->createOrder($total, $purchases);
+        $detail_order = OrderItem::where('order_id','=',$order->id)->get();
+        Session::forget('purchase');
+
+        return view('store.detail', compact('order','detail_order'));
     }
 
-    public function createOrder($total, $purchases){
+    public function createOrder($total, $purchases)
+    {
+
+        $date = Carbon::now()->format('YmdHis');
+        $code = rand(0, 100000);
+        $number_format = "{$code}-{$date}";
 
         $order = Order::create([
+            'number_order' => $number_format,
             'total'=> $total ,
-            'sending_value'=> 6000
+            'sending_value'=> 6000,
+            'status'=> 'Compra Exitosa'
         ]);
 
         foreach ($purchases as $purchase){
@@ -91,12 +103,7 @@ class PurchaseController extends Controller
             Stock::where('id','=', $purchase->stock_id)->update(['quantity'=> $purchase->quantity - $purchase->number_items]);
         }
 
-    }
+        return $order;
 
-    public function finalized()
-    {
-        Session::forget('purchase');
-        return redirect()->route('products');
     }
-
 }

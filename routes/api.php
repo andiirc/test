@@ -26,3 +26,5 @@ Route::post('/products','ProductController@store');
 Route::get('/stocks', 'StockController@index');
 
 Route::post('/stocks','StockController@store');
+
+Route::get('/orders','OrderController@index');

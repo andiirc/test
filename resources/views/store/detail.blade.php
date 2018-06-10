@@ -2,11 +2,13 @@
 
 @section('content')
     <div class="container">
-        <h1>Compra realizada</h1>
+        <h1>{{ $order->status }}</h1>
+        <h3>Numero de orden {{ $order->number_order }}</h3>
+        <p>Fecha y hora de la transaccion {{ \Carbon\Carbon::now() }}</p>
         <div>
-            <p>Por total de: {{$total}} cantidad de articulos comprados {{ count($purchases) }}</p>
-            <p>Fecha y hora de la transaccion {{ \Carbon\Carbon::now() }}</p>
-            <a href="{{ route('purchase-finalized') }}" class="btn btn-success">Finalizar Compra</a>
+            <p>Por total de: ${{ $order->total }}</p>
+            <p>Costo de envio: ${{ $order->sending_value }}</p>
+            <p>cantidad de articulos comprados: {{ count($detail_order) }}</p>
         </div>
     </div>
 @stop

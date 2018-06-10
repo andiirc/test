@@ -61,7 +61,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="{{ route('purchase-detail') }}" class="btn btn-success">
+                            <a href="{{ route('purchase-finished') }}" class="btn btn-success">
                                 Confirmar Compra
                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                             </a>

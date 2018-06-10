@@ -52,6 +52,7 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ route('home') }}">Productos</a></li>
                                     <li><a href="{{ route('stock') }}">Stock</a></li>
+                                    <li><a href="{{ route('order') }}">Ordenes</a></li>
                                 </ul>
                             </li>
 
