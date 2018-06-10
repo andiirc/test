@@ -10,7 +10,7 @@
 
         data () {
             return {
-                columns: ['id', 'number_order', 'total', 'sending_value', 'status'],
+                columns: ['id', 'number_order', 'total', 'sending_value', 'status','created_at'],
                 options: {
                     perPage: 5,
                     perPageValues: [ 5, 10, 15, 20 ],
@@ -20,6 +20,7 @@
                         total: 'Total',
                         sending_value: 'Costo Envio',
                         status: 'Estado',
+                        created_at: 'Fecha'
                     },
                     sortable: ['id', 'status' ],
                     filterable: ['id', 'status' ],

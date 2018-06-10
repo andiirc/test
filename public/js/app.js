@@ -105022,7 +105022,7 @@ exports = module.exports = __webpack_require__(7)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -105045,7 +105045,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            columns: ['id', 'number_order', 'total', 'sending_value', 'status'],
+            columns: ['id', 'number_order', 'total', 'sending_value', 'status', 'created_at'],
             options: {
                 perPage: 5,
                 perPageValues: [5, 10, 15, 20],
@@ -105054,7 +105054,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                     number_order: 'Numero Orden',
                     total: 'Total',
                     sending_value: 'Costo Envio',
-                    status: 'Estado'
+                    status: 'Estado',
+                    created_at: 'Fecha'
                 },
                 sortable: ['id', 'status'],
                 filterable: ['id', 'status'],

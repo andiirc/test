@@ -11,7 +11,7 @@ class OrderController extends Controller
     public function index()
     {
         $table = new EloquentVueTables;
-        $data = $table->get( new Order(), ['id','number_order','total','sending_value','status']);
+        $data = $table->get( new Order(), ['id','number_order','total','sending_value','status','created_at']);
         return response()->json($data);
     }
 }
