@@ -26,3 +26,4 @@ Route::post('/purchase/attach', 'PurchaseController@attach')->name('purchase-att
 Route::get('/purchase/delete/{product}', 'PurchaseController@delete')->name('purchase-delete-item');
 Route::get('/purchase/trash', 'PurchaseController@trash')->name('purchase-trash');
 Route::get('/purchase/finished', 'PurchaseController@finished')->name('purchase-finished');
+Route::get('/purchase/invoice/{order}','PurchaseController@invoice')->name('purchase-invoice');

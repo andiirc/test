@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Entities\Order;
 use App\Entities\OrderItem;
+use App\Entities\Product;
 use App\Entities\Stock;
 use App\Entities\StockView;
+use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -70,6 +72,7 @@ class PurchaseController extends Controller
         if(count(Session::get('purchase')) < 1){
             return redirect()->route('products');
         }
+
         $purchases = Session::get('purchase');
         $total = $this->total();
         $order = $this->createOrder($total, $purchases);
@@ -95,6 +98,7 @@ class PurchaseController extends Controller
 
         foreach ($purchases as $purchase){
             $order->orderItems()->create([
+                'name_product'=> $purchase->name,
                 'price'=> $purchase->unit_value,
                 'quantity'=> $purchase->number_items,
                 'stock_id'=> $purchase->stock_id
@@ -105,5 +109,13 @@ class PurchaseController extends Controller
 
         return $order;
 
+    }
+
+    public function invoice($id)
+    {
+        $order = Order::where('id','=',$id)->first();
+        $detail_order = OrderItem::where('order_id','=',$order->id)->get();
+        $pdf = PDF::loadView('store.invoice', compact('order', 'detail_order'));
+        return $pdf->download('invoice.pdf');
     }
 }
