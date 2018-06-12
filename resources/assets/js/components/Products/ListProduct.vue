@@ -23,8 +23,13 @@
                         name: 'Nombre',
                         unit_value: 'Valor Unitario'
                     },
-                    sortable: ['id', 'name'],
-                    filterable: ['id', 'name'],
+                    texts: {
+                        filter: "Filtrar:",
+                        filterBy: 'Filtrar por {column}',
+                        count:' '
+                    },
+                    sortable: ['name'],
+                    filterable: ['name'],
                     filterByColumn: true,
                 }
             }

@@ -14,6 +14,7 @@ Vue.prototype.$http = window.axios
 import { ServerTable, } from 'vue-tables-2';
 Vue.use( ServerTable, {}, false, 'bootstrap3', 'default');
 
+import daterangepicker from 'daterangepicker';
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'

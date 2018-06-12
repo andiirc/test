@@ -22,8 +22,13 @@
                         status: 'Estado',
                         created_at: 'Fecha'
                     },
-                    sortable: ['id', 'status' ],
-                    filterable: ['id', 'status' ],
+                    texts: {
+                        filter: "Filtrar:",
+                        filterBy: 'Filtrar por {column}',
+                        count:' '
+                    },
+                    sortable: [ 'number_order', 'status' ],
+                    filterable: [ 'number_order', 'status' ],
                     filterByColumn: true,
                 }
             }

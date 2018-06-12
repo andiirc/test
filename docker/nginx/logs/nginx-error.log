@@ -1,0 +1,1 @@
+2018/06/12 22:45:30 [warn] 7#7: *7 an upstream response is buffered to a temporary file /var/cache/nginx/fastcgi_temp/1/00/0000000001 while reading upstream, client: 172.18.0.1, server: laravel, request: "GET /home HTTP/1.1", upstream: "fastcgi://172.18.0.2:9000", host: "localhost", referrer: "http://localhost/login"

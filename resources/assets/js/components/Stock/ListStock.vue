@@ -27,8 +27,19 @@
                         value_item: 'Valor Total',
                         due_date: 'Fecha Caducidad'
                     },
-                    sortable: ['id', 'name', 'lot' ],
-                    filterable: ['id', 'name', 'lot' ],
+                    texts: {
+                        filter: "Filtrar:",
+                        filterBy: 'Filtrar por {column}',
+                        count:' '
+                    },
+                    /*dateColumns:['due_date'],
+                    dateFormat: 'YYYY-MM-DD',
+                    datepickerOptions: {
+                        showDropdowns: true,
+                        autoUpdateInput: true,
+                    },*/
+                    sortable: ['name', 'lot' ],
+                    filterable: ['name', 'lot' ],
                     filterByColumn: true,
                 }
             }
