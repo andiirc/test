@@ -10,7 +10,12 @@
             <p>Costo de los productos: ${{ $order->total }}</p>
             <p>Costo de envio: ${{ $order->sending_value }}</p>
             <p>Total Compra: {{ $order->total + $order->sending_value }} </p>
-            <a href="{{ route('') }}" class="btn btn-success">Descargar Factura</a>
+            <a href="{{ route('purchase-invoice' ,[ $order->id ]) }}" class="btn btn-success">
+                Generar Factura
+            </a>
+            <a href="{{ route('products') }}" class="btn btn-warning">
+                Salir
+            </a>
         </div>
     </div>
 @stop
